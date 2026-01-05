@@ -2,6 +2,7 @@ import React from 'react'
 import { GoHeartFill } from "react-icons/go"
 import { RiShoppingBag4Fill } from "react-icons/ri"
 import { IoSearch } from "react-icons/io5"
+import { TbMenu2 } from "react-icons/tb";
 
 const Navbar = () => {
   return (
@@ -14,7 +15,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className=" md:flex items-center gap-10 hidden">
           {["Home", "About Us", "Process", "Contact"].map((item) => (
             <li key={item}>
               <a
@@ -49,6 +50,11 @@ const Navbar = () => {
 
           <a className="text-gray-700 hover:text-orange-500 transition transform hover:scale-110">
             <RiShoppingBag4Fill size={22} />
+          </a>
+          {/* hAMBURGER */}
+          <a href="#"className="text-zinc-800 text-2xl md:hidden">
+            <TbMenu2 />
+
           </a>
         </div>
 
