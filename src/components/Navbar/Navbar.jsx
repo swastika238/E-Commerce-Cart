@@ -1,69 +1,60 @@
 import React from 'react'
-import { GoHeartFill } from "react-icons/go";
-import { RiShoppingBag4Fill } from "react-icons/ri";
-import { IoSearch } from "react-icons/io5";
+import { GoHeartFill } from "react-icons/go"
+import { RiShoppingBag4Fill } from "react-icons/ri"
+import { IoSearch } from "react-icons/io5"
 
 const Navbar = () => {
   return (
-    <header className="bg-white fixed top-0 left-0 right-0 shadow-sm z-50">
-      <nav className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between py-4">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-md">
+      <nav className="max-w-[1400px] mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
+
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold text-black">
+        <a href="#" className="text-3xl font-extrabold tracking-wide">
           Gr<span className="text-orange-500">O</span>cify
         </a>
 
-        {/* Desktop Navigation Links */}
-        <ul className="hidden md:flex items-center gap-x-8">
-          <li>
-            <a href="#" className="font-semibold text-yellow-500 hover:text-yellow-400 transition-colors duration-300">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="#" className="font-semibold text-black hover:text-yellow-400 transition-colors duration-300">
-              About Us
-            </a>
-          </li>
-          <li>
-            <a href="#" className="font-semibold text-black hover:text-yellow-400 transition-colors duration-300">
-              Process
-            </a>
-          </li>
-          <li>
-            <a href="#" className="font-semibold text-black hover:text-yellow-400 transition-colors duration-300">
-              Contact
-            </a>
-          </li>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-10">
+          {["Home", "About Us", "Process", "Contact"].map((item) => (
+            <li key={item}>
+              <a
+                href="#"
+                className="relative font-semibold text-gray-800 hover:text-orange-500 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300"
+              >
+                {item}
+              </a>
+            </li>
+          ))}
         </ul>
 
-        {/* NavAction */}
-        <div className='flex items-center gap-x-5'>
-          {/* Search Field */}
-          <div className='flex p-1 border-2 border-orange-500 rounded-full'>
-            <input 
-              type="text" 
-              placeholder='Search...' 
-              autoComplete='off'
-              className='flex-1 h-[5vh] px-3 focus:outline-none' 
+        {/* Right Actions */}
+        <div className="flex items-center gap-6">
+
+          {/* Search */}
+          <div className="hidden lg:flex items-center border border-orange-400 rounded-full px-3 py-1">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-transparent focus:outline-none px-2 text-sm"
             />
-            <button className='bg-gradient-to-b from -red-600 to orange-500 -500 text-white w-10 h-10 flex justify-center items-center rounded-full'>
-              <IoSearch size={20} />
+            <button className="bg-orange-500 text-white w-9 h-9 flex items-center justify-center rounded-full hover:bg-orange-600 transition">
+              <IoSearch size={18} />
             </button>
           </div>
 
-          {/* Heart Icon */}
-          <a href="#" className='text-zinc-800 text-2xl'>
-            <GoHeartFill size={24} />
+          {/* Icons */}
+          <a className="text-gray-700 hover:text-orange-500 transition transform hover:scale-110">
+            <GoHeartFill size={22} />
           </a>
 
-          {/* Shopping Bag Icon */}
-          <a href="#" className='text-zinc-800 text-2xl'>
-            <RiShoppingBag4Fill size={24} />
+          <a className="text-gray-700 hover:text-orange-500 transition transform hover:scale-110">
+            <RiShoppingBag4Fill size={22} />
           </a>
         </div>
+
       </nav>
     </header>
   )
 }
 
-export default Navbar;
+export default Navbar
