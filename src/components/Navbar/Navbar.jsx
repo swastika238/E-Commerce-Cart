@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { GoHeartFill } from "react-icons/go"
 import { RiShoppingBag4Fill } from "react-icons/ri"
 import { IoSearch } from "react-icons/io5"
 import { TbMenu2 } from "react-icons/tb";
 
 const Navbar = () => {
+  const [showMenu, setshowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setshowMenu(!showMenu)
+  }
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-md">
       <nav className="max-w-[1400px] mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
@@ -15,12 +21,12 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Menu */}
-        <ul className=" md:flex items-center gap-10 hidden">
+        <ul className="md:flex items-center gap-10 hidden">
           {["Home", "About Us", "Process", "Contact"].map((item) => (
             <li key={item}>
               <a
                 href="#"
-                className="relative font-semibold text-gray-800 hover:text-orange-500 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-orange-500 hover:after:w-full after:transition-all after:duration-300"
+                className="relative font-semibold text-gray-800 hover:text-orange-500 transition duration-300"
               >
                 {item}
               </a>
@@ -38,7 +44,7 @@ const Navbar = () => {
               placeholder="Search..."
               className="bg-transparent focus:outline-none px-2 text-sm"
             />
-            <button className="bg-orange-500 text-white w-9 h-9 flex items-center justify-center rounded-full hover:bg-orange-600 transition">
+            <button className="bg-orange-500 text-white w-9 h-9 flex items-center justify-center rounded-full">
               <IoSearch size={18} />
             </button>
           </div>
@@ -51,14 +57,35 @@ const Navbar = () => {
           <a className="text-gray-700 hover:text-orange-500 transition transform hover:scale-110">
             <RiShoppingBag4Fill size={22} />
           </a>
-          {/* hAMBURGER */}
-          <a href="#"className="text-zinc-800 text-2xl md:hidden">
-            <TbMenu2 />
 
+          {/* Hamburger */}
+          <a
+            href="#"
+            className="text-zinc-800 text-2xl md:hidden"
+            onClick={toggleMenu}
+          >
+            <TbMenu2 />
           </a>
         </div>
-
       </nav>
+
+      {/* Mobile Menu */}
+      {showMenu &&(
+      <div className="md:hidden bg-white shadow-md">
+        <ul className="flex flex-col-gap gap-5 px-6 py-6">
+          {["Home", "About Us", "Process", "contact"].map((item)=>(
+            <li key={item}>
+              <a href="#" className='font-semibold text-gray-800 hover:text-orange-500' onClick={()=>setshowMenu(false)}>
+                {item}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      )}
+     
+     
+
     </header>
   )
 }
