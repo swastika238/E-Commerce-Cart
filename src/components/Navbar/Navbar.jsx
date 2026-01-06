@@ -72,7 +72,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {showMenu &&(
       <div className="md:hidden bg-white shadow-md">
-        <ul className="flex flex-col-gap gap-5 px-6 py-6">
+        <ul className="flex flex-col-gap gap-5 px-6 py-6 shadow-xl">
           {["Home", "About Us", "Process", "contact"].map((item)=>(
             <li key={item}>
               <a href="#" className='font-semibold text-gray-800 hover:text-orange-500' onClick={()=>setshowMenu(false)}>
