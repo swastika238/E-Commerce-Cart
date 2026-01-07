@@ -3,6 +3,8 @@ import Navbar from '../Navbar/Navbar'
 import Hero from '../Hero/Hero'
 import Section from'../Section/Section'
 import Values from '../Values/Values'
+import Products from '../Products/Products'
+
 
 
 
@@ -13,6 +15,9 @@ const Home = () => {
     <Hero/>
    <Section/>
    <Values/>
+   <Products/>
+
+  
    
 
     </div>
