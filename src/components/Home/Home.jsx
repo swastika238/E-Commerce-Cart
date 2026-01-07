@@ -4,6 +4,7 @@ import Hero from '../Hero/Hero'
 import Section from'../Section/Section'
 import Values from '../Values/Values'
 import Products from '../Products/Products'
+import Discount from '../Discount/Discount'
 
 
 
@@ -16,6 +17,7 @@ const Home = () => {
    <Section/>
    <Values/>
    <Products/>
+   <Discount/>
 
   
    
